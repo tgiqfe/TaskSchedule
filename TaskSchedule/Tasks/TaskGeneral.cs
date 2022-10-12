@@ -1,9 +1,17 @@
-﻿using TaskScheduler;
-
-namespace TaskSchedule
+﻿namespace TaskSchedule.Tasks
 {
     internal class TaskGeneral
     {
+        /// <summary>
+        /// タスクの名前
+        /// </summary>
+        public string TaskName { get; set; }
+
+        /// <summary>
+        /// タスクの場所
+        /// </summary>
+        public string TaskPath { get; set; }
+
         /// <summary>
         /// 作成者
         /// </summary>
@@ -38,5 +46,18 @@ namespace TaskSchedule
         /// 表示しない
         /// </summary>
         public bool? Hidden { get; set; }
+
+        public _TASK_LOGON_TYPE GetLogonType()
+        {
+            if (RunOnlyWhenUserLoggedOn == null || RunOnlyWhenUserLoggedOn == true)
+            {
+                return _TASK_LOGON_TYPE.TASK_LOGON_INTERACTIVE_TOKEN;
+            }
+            if (DoNotSavePassword == null || DoNotSavePassword == false)
+            {
+                return _TASK_LOGON_TYPE.TASK_LOGON_S4U;
+            }
+            return _TASK_LOGON_TYPE.TASK_LOGON_PASSWORD;
+        }
     }
 }

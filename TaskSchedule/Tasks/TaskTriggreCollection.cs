@@ -1,6 +1,4 @@
-﻿using TaskScheduler;
-
-namespace TaskSchedule
+﻿namespace TaskSchedule.Tasks
 {
     internal class TaskTriggreCollection
     {
@@ -8,7 +6,7 @@ namespace TaskSchedule
 
         public TaskTriggreCollection()
         {
-            this.Triggers = new();
+            Triggers = new();
         }
 
         public void Register(ITaskDefinition definition)
@@ -53,19 +51,19 @@ namespace TaskSchedule
 
         private void RegistTimeTrigger(ITimeTrigger trigger, TaskTrigger taskTrigger)
         {
-            trigger.StartBoundary = TaskFunctions.ToText(taskTrigger.StartBoundary);
+            trigger.StartBoundary = Functions.ToText(taskTrigger.StartBoundary);
 
             if (taskTrigger.RandomDelay != null)
             {
-                trigger.RandomDelay = TaskFunctions.ToText(taskTrigger.RandomDelay);
+                trigger.RandomDelay = Functions.ToText(taskTrigger.RandomDelay);
             }
             if (taskTrigger.RepetitionInteval != null)
             {
-                trigger.Repetition.Interval = TaskFunctions.ToText(taskTrigger.RepetitionInteval);
+                trigger.Repetition.Interval = Functions.ToText(taskTrigger.RepetitionInteval);
             }
             if (taskTrigger.RepetitionDuration != null)
             {
-                trigger.Repetition.Duration = TaskFunctions.ToText(taskTrigger.RepetitionDuration);
+                trigger.Repetition.Duration = Functions.ToText(taskTrigger.RepetitionDuration);
             }
             if (taskTrigger.RepetitionStopAtDurationEnd != null)
             {
@@ -73,11 +71,11 @@ namespace TaskSchedule
             }
             if (taskTrigger.ExecutionTimeLimit != null)
             {
-                trigger.ExecutionTimeLimit = TaskFunctions.ToText(taskTrigger.ExecutionTimeLimit);
+                trigger.ExecutionTimeLimit = Functions.ToText(taskTrigger.ExecutionTimeLimit);
             }
             if (taskTrigger.EndBoundary != null)
             {
-                trigger.EndBoundary = TaskFunctions.ToText(taskTrigger.EndBoundary);
+                trigger.EndBoundary = Functions.ToText(taskTrigger.EndBoundary);
             }
 
             trigger.Enabled = taskTrigger.Enabled;
@@ -85,7 +83,7 @@ namespace TaskSchedule
 
         private void RegistDaiyTrigger(IDailyTrigger trigger, TaskTrigger taskTrigger)
         {
-            trigger.StartBoundary = TaskFunctions.ToText(taskTrigger.StartBoundary);
+            trigger.StartBoundary = Functions.ToText(taskTrigger.StartBoundary);
 
             if (taskTrigger.DaysInterval != null)
             {
@@ -93,15 +91,15 @@ namespace TaskSchedule
             }
             if (taskTrigger.RandomDelay != null)
             {
-                trigger.RandomDelay = TaskFunctions.ToText(taskTrigger.RandomDelay);
+                trigger.RandomDelay = Functions.ToText(taskTrigger.RandomDelay);
             }
             if (taskTrigger.RepetitionInteval != null)
             {
-                trigger.Repetition.Interval = TaskFunctions.ToText(taskTrigger.RepetitionInteval);
+                trigger.Repetition.Interval = Functions.ToText(taskTrigger.RepetitionInteval);
             }
             if (taskTrigger.RepetitionDuration != null)
             {
-                trigger.Repetition.Duration = TaskFunctions.ToText(taskTrigger.RepetitionDuration);
+                trigger.Repetition.Duration = Functions.ToText(taskTrigger.RepetitionDuration);
             }
             if (taskTrigger.RepetitionStopAtDurationEnd != null)
             {
@@ -109,11 +107,11 @@ namespace TaskSchedule
             }
             if (taskTrigger.ExecutionTimeLimit != null)
             {
-                trigger.ExecutionTimeLimit = TaskFunctions.ToText(taskTrigger.ExecutionTimeLimit);
+                trigger.ExecutionTimeLimit = Functions.ToText(taskTrigger.ExecutionTimeLimit);
             }
             if (taskTrigger.EndBoundary != null)
             {
-                trigger.EndBoundary = TaskFunctions.ToText(taskTrigger.EndBoundary);
+                trigger.EndBoundary = Functions.ToText(taskTrigger.EndBoundary);
             }
 
             trigger.Enabled = taskTrigger.Enabled;
@@ -121,7 +119,7 @@ namespace TaskSchedule
 
         private void RegistWeeklyTrigger(IWeeklyTrigger trigger, TaskTrigger taskTrigger)
         {
-            trigger.StartBoundary = TaskFunctions.ToText(taskTrigger.StartBoundary);
+            trigger.StartBoundary = Functions.ToText(taskTrigger.StartBoundary);
 
             if (taskTrigger.WeeksInterval != null)
             {
@@ -133,15 +131,15 @@ namespace TaskSchedule
             }
             if (taskTrigger.RandomDelay != null)
             {
-                trigger.RandomDelay = TaskFunctions.ToText(taskTrigger.RandomDelay);
+                trigger.RandomDelay = Functions.ToText(taskTrigger.RandomDelay);
             }
             if (taskTrigger.RepetitionInteval != null)
             {
-                trigger.Repetition.Interval = TaskFunctions.ToText(taskTrigger.RepetitionInteval);
+                trigger.Repetition.Interval = Functions.ToText(taskTrigger.RepetitionInteval);
             }
             if (taskTrigger.RepetitionDuration != null)
             {
-                trigger.Repetition.Duration = TaskFunctions.ToText(taskTrigger.RepetitionDuration);
+                trigger.Repetition.Duration = Functions.ToText(taskTrigger.RepetitionDuration);
             }
             if (taskTrigger.RepetitionStopAtDurationEnd != null)
             {
@@ -149,11 +147,11 @@ namespace TaskSchedule
             }
             if (taskTrigger.ExecutionTimeLimit != null)
             {
-                trigger.ExecutionTimeLimit = TaskFunctions.ToText(taskTrigger.ExecutionTimeLimit);
+                trigger.ExecutionTimeLimit = Functions.ToText(taskTrigger.ExecutionTimeLimit);
             }
             if (taskTrigger.EndBoundary != null)
             {
-                trigger.EndBoundary = TaskFunctions.ToText(taskTrigger.EndBoundary);
+                trigger.EndBoundary = Functions.ToText(taskTrigger.EndBoundary);
             }
 
             trigger.Enabled = taskTrigger.Enabled;
@@ -161,7 +159,7 @@ namespace TaskSchedule
 
         private void RegistMonghlyTrigger(IMonthlyTrigger trigger, TaskTrigger taskTrigger)
         {
-            trigger.StartBoundary = TaskFunctions.ToText(taskTrigger.StartBoundary);
+            trigger.StartBoundary = Functions.ToText(taskTrigger.StartBoundary);
 
             if (taskTrigger.MonthsOfYear != null)
             {
@@ -173,15 +171,15 @@ namespace TaskSchedule
             }
             if (taskTrigger.RandomDelay != null)
             {
-                trigger.RandomDelay = TaskFunctions.ToText(taskTrigger.RandomDelay);
+                trigger.RandomDelay = Functions.ToText(taskTrigger.RandomDelay);
             }
             if (taskTrigger.RepetitionInteval != null)
             {
-                trigger.Repetition.Interval = TaskFunctions.ToText(taskTrigger.RepetitionInteval);
+                trigger.Repetition.Interval = Functions.ToText(taskTrigger.RepetitionInteval);
             }
             if (taskTrigger.RepetitionDuration != null)
             {
-                trigger.Repetition.Duration = TaskFunctions.ToText(taskTrigger.RepetitionDuration);
+                trigger.Repetition.Duration = Functions.ToText(taskTrigger.RepetitionDuration);
             }
             if (taskTrigger.RepetitionStopAtDurationEnd != null)
             {
@@ -189,11 +187,11 @@ namespace TaskSchedule
             }
             if (taskTrigger.ExecutionTimeLimit != null)
             {
-                trigger.ExecutionTimeLimit = TaskFunctions.ToText(taskTrigger.ExecutionTimeLimit);
+                trigger.ExecutionTimeLimit = Functions.ToText(taskTrigger.ExecutionTimeLimit);
             }
             if (taskTrigger.EndBoundary != null)
             {
-                trigger.EndBoundary = TaskFunctions.ToText(taskTrigger.EndBoundary);
+                trigger.EndBoundary = Functions.ToText(taskTrigger.EndBoundary);
             }
 
             trigger.Enabled = taskTrigger.Enabled;
@@ -201,7 +199,7 @@ namespace TaskSchedule
 
         private void RegistMonthlyDOMTrigger(IMonthlyDOWTrigger trigger, TaskTrigger taskTrigger)
         {
-            trigger.StartBoundary = TaskFunctions.ToText(taskTrigger.StartBoundary);
+            trigger.StartBoundary = Functions.ToText(taskTrigger.StartBoundary);
 
             if (taskTrigger.MonthsOfYear != null)
             {
@@ -217,15 +215,15 @@ namespace TaskSchedule
             }
             if (taskTrigger.RandomDelay != null)
             {
-                trigger.RandomDelay = TaskFunctions.ToText(taskTrigger.RandomDelay);
+                trigger.RandomDelay = Functions.ToText(taskTrigger.RandomDelay);
             }
             if (taskTrigger.RepetitionInteval != null)
             {
-                trigger.Repetition.Interval = TaskFunctions.ToText(taskTrigger.RepetitionInteval);
+                trigger.Repetition.Interval = Functions.ToText(taskTrigger.RepetitionInteval);
             }
             if (taskTrigger.RepetitionDuration != null)
             {
-                trigger.Repetition.Duration = TaskFunctions.ToText(taskTrigger.RepetitionDuration);
+                trigger.Repetition.Duration = Functions.ToText(taskTrigger.RepetitionDuration);
             }
             if (taskTrigger.RepetitionStopAtDurationEnd != null)
             {
@@ -233,11 +231,11 @@ namespace TaskSchedule
             }
             if (taskTrigger.ExecutionTimeLimit != null)
             {
-                trigger.ExecutionTimeLimit = TaskFunctions.ToText(taskTrigger.ExecutionTimeLimit);
+                trigger.ExecutionTimeLimit = Functions.ToText(taskTrigger.ExecutionTimeLimit);
             }
             if (taskTrigger.EndBoundary != null)
             {
-                trigger.EndBoundary = TaskFunctions.ToText(taskTrigger.EndBoundary);
+                trigger.EndBoundary = Functions.ToText(taskTrigger.EndBoundary);
             }
 
             trigger.Enabled = taskTrigger.Enabled;

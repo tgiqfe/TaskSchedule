@@ -1,9 +1,8 @@
-﻿using TaskScheduler;
-using System.Text;
+﻿using System.Text;
 
 namespace TaskSchedule
 {
-    internal class TaskFunctions
+    internal class Functions
     {
         /// <summary>
         /// PnYnMnDTnHnMnS形式で返す (年と月は対象外)

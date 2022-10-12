@@ -1,6 +1,4 @@
-﻿using TaskScheduler;
-
-namespace TaskSchedule
+﻿namespace TaskSchedule.Tasks
 {
     internal class TaskRequire
     {

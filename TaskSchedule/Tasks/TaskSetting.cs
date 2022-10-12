@@ -1,6 +1,4 @@
-﻿using TaskScheduler;
-
-namespace TaskSchedule
+﻿namespace TaskSchedule.Tasks
 {
     internal class TaskSetting
     {
@@ -15,6 +13,11 @@ namespace TaskSchedule
         public bool? StartWhenAvailable { get; set; }
 
         /// <summary>
+        /// タスクが失敗した場合の再起動の間隔 (有効/無効）
+        /// </summary>
+        public bool? EnableRestartInterval { get; set; }
+
+        /// <summary>
         /// タスクが失敗した場合の再起動の間隔
         /// </summary>
         public TimeSpan? RestartInterval { get; set; }
@@ -22,7 +25,12 @@ namespace TaskSchedule
         /// <summary>
         /// 再起動試行の最大数
         /// </summary>
-        public int? RestartCoutn { get; set; }
+        public int? RestartCount { get; set; }
+
+        /// <summary>
+        /// タスクを停止するまでの時間 (有効/無効)
+        /// </summary>
+        public bool? EnableExecutionTimeLimit { get; set; }
 
         /// <summary>
         /// タスクを停止するまでの時間
@@ -30,9 +38,14 @@ namespace TaskSchedule
         public TimeSpan? ExecutionTimeLimit { get; set; }
 
         /// <summary>
-        /// 要求時に実行中のタスクが終了しえちない場合に削除されるまでの時間
+        /// 要求時に実行中のタスクが終了していない場合に、タスクを強制的に停止する
         /// </summary>
         public bool? AllowHardTerminate { get; set; }
+
+        /// <summary>
+        /// タスクの再実行がスケジュールされていない場合に削除されるまでの時間 (有効/無効)
+        /// </summary>
+        public bool? EnableDeleteExpiredTaskAfter { get; set; }
 
         /// <summary>
         /// タスクの再実行がスケジュールされていない場合に削除されるまでの時間
@@ -49,7 +62,7 @@ namespace TaskSchedule
             Queue,          //  新しいインスタンスをキューに追加
             StopExisting,   //  既存のインスタンスの停止
         }
-        public TaskInstancePolicy MultipleInstances { get; set; }
+        public TaskInstancePolicy? MultipleInstances { get; set; }
 
 
     }

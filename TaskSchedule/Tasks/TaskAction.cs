@@ -1,6 +1,4 @@
-﻿using TaskScheduler;
-
-namespace TaskSchedule
+﻿namespace TaskSchedule.Tasks
 {
     internal class TaskAction
     {
@@ -11,9 +9,9 @@ namespace TaskSchedule
         public TaskAction() { }
         public TaskAction(string path, string arguments, string workingDirectory)
         {
-            this.Path = path;
-            this.Arguments = arguments;
-            this.WorkingDirectory = workingDirectory;
+            Path = path;
+            Arguments = arguments;
+            WorkingDirectory = workingDirectory;
         }
     }
 }

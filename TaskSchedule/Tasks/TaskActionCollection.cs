@@ -1,6 +1,4 @@
-﻿using TaskScheduler;
-
-namespace TaskSchedule
+﻿namespace TaskSchedule.Tasks
 {
     internal class TaskActionCollection
     {
@@ -8,7 +6,7 @@ namespace TaskSchedule
 
         public TaskActionCollection()
         {
-            this.Actions = new();
+            Actions = new();
         }
 
         public void Register(ITaskDefinition definition)
