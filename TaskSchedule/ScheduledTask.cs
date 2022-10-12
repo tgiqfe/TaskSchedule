@@ -6,7 +6,6 @@ using TaskScheduler;
 
 namespace TaskSchedule
 {
-    [SupportedOSPlatform("windows")]
     internal class ScheduledTask
     {
         public TaskGeneral General { get; set; }
@@ -17,6 +16,15 @@ namespace TaskSchedule
 
         public string UserName { get; set; }
         public string Password { get; set; }
+
+        public ScheduledTask()
+        {
+            this.General = new();
+            this.Actions = new();
+            this.Triggers = new();
+            this.Setting = new();
+            this.Require = new();
+        }
 
         public void Regist()
         {

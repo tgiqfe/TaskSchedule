@@ -10,7 +10,7 @@
         /// <summary>
         /// タスクの場所
         /// </summary>
-        public string TaskPath { get; set; }
+        public string TaskPath { get; set; } = "\\";
 
         /// <summary>
         /// 作成者
