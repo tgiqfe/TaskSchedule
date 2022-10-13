@@ -1,10 +1,8 @@
-﻿
-using TaskSchedule.Tasks;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 using System.Runtime.Versioning;
 using TaskScheduler;
 
-namespace TaskSchedule
+namespace TaskSchedule.Tasks
 {
     internal class ScheduledTask
     {
@@ -19,11 +17,11 @@ namespace TaskSchedule
 
         public ScheduledTask()
         {
-            this.General = new();
-            this.Actions = new();
-            this.Triggers = new();
-            this.Setting = new();
-            this.Require = new();
+            General = new();
+            Actions = new();
+            Triggers = new();
+            Setting = new();
+            Require = new();
         }
 
         public void Regist()
@@ -62,7 +60,7 @@ namespace TaskSchedule
             }
         }
 
-        public void RegistGeneral(ITaskDefinition definition)
+        private void RegistGeneral(ITaskDefinition definition)
         {
             IRegistrationInfo registrationInfo = definition.RegistrationInfo;
             if (General.Author != null)
@@ -94,7 +92,7 @@ namespace TaskSchedule
             }
         }
 
-        public void RegistActions(ITaskDefinition definition)
+        private void RegistActions(ITaskDefinition definition)
         {
             IActionCollection actionCollection = definition.Actions;
             foreach (var action in Actions)
@@ -106,7 +104,7 @@ namespace TaskSchedule
             }
         }
 
-        public void RegistTriggers(ITaskDefinition definition)
+        private void RegistTriggers(ITaskDefinition definition)
         {
             ITriggerCollection triggerCollection = definition.Triggers;
             foreach (var taskTrigger in Triggers)
@@ -146,7 +144,7 @@ namespace TaskSchedule
             }
         }
 
-        public void RegistRequire(ITaskDefinition definition)
+        private void RegistRequire(ITaskDefinition definition)
         {
             ITaskSettings taskSettings = definition.Settings;
             if (Require.RunOnlyIfIdle != null)
@@ -193,7 +191,7 @@ namespace TaskSchedule
             }
         }
 
-        public void RegistSetting(ITaskDefinition deffinition)
+        private void RegistSetting(ITaskDefinition deffinition)
         {
             ITaskSettings settings = deffinition.Settings;
             if (Setting.AllowDemandStart != null)

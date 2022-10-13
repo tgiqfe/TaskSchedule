@@ -16,9 +16,10 @@ task.Triggers.Add(new TaskTrigger()
 });
 task.Actions.Add(new TaskAction()
 {
-
+    Path = "cmd.exe",
+    Arguments = @"/c echo %date% %time% >> D:\Test\Files-Source\tasktest.txt",
 });
-
+task.Regist();
 
 
 

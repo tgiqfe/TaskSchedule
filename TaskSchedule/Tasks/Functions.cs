@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace TaskSchedule
+namespace TaskSchedule.Tasks
 {
     internal class Functions
     {
