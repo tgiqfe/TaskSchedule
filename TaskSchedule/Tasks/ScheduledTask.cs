@@ -39,7 +39,6 @@ namespace TaskSchedule.Tasks
                 RegistRequire(definition);
                 RegistSetting(definition);
 
-
                 rootFolder.RegisterTaskDefinition(
                     General.TaskName,
                     definition,

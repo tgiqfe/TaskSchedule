@@ -1,4 +1,5 @@
-﻿namespace TaskSchedule.Tasks
+﻿
+namespace TaskSchedule.Tasks
 {
     internal class TaskSetting
     {
@@ -63,7 +64,5 @@
             StopExisting,   //  既存のインスタンスの停止
         }
         public TaskInstancePolicy? MultipleInstances { get; set; }
-
-
     }
 }

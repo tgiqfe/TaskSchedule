@@ -1,4 +1,5 @@
-﻿namespace TaskSchedule.Tasks
+﻿
+namespace TaskSchedule.Tasks
 {
     internal class TaskAction
     {
