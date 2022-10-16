@@ -24,6 +24,10 @@ namespace TaskSchedule.Tasks
             Require = new();
         }
 
+        /// <summary>
+        /// タスク登録用
+        /// このメソッドを実行する前に、　各パラメータを事前にセットしておく必要有り。
+        /// </summary>
         public void Regist()
         {
             var taskService = new TaskScheduler.TaskScheduler();
@@ -58,6 +62,36 @@ namespace TaskSchedule.Tasks
                 if (taskService != null) Marshal.ReleaseComObject(taskService);
             }
         }
+
+        /// <summary>
+        /// タスク削除。TaskPath未指定の場合、「\」を指定
+        /// </summary>
+        /// <param name="taskName"></param>
+        public void Remove(string taskName)
+        {
+            Remove("\\", taskName);
+        }
+
+        /// <summary>
+        /// タスク削除
+        /// </summary>
+        /// <param name="taskPath"></param>
+        /// <param name="taskName"></param>
+        public void Remove(string taskPath, string taskName)
+        {
+            var taskService = new TaskScheduler.TaskScheduler();
+            taskService.Connect(null, null, null, null);
+            ITaskFolder rootFolder = taskService.GetFolder(taskPath);
+
+            var taskArray = rootFolder.GetTasks(0).OfType<IRegisteredTask>().ToArray();
+            var targetTask = taskArray.FirstOrDefault(x => x.Name.Equals(taskName, StringComparison.OrdinalIgnoreCase));
+            if (targetTask != null)
+            {
+                rootFolder.DeleteTask(targetTask.Name, 0);
+            }
+        }
+
+        #region Regist parameters private method
 
         private void RegistGeneral(ITaskDefinition definition)
         {
@@ -242,6 +276,7 @@ namespace TaskSchedule.Tasks
             }
         }
 
+        #endregion
         #region RegistTrigger private methods
 
         private void RegistTrigger_time(ITimeTrigger trigger, TaskTrigger taskTrigger)
